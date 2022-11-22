@@ -1,12 +1,10 @@
 pipeline {
     agent { label "linux" }
-    stages {
-        stage('build') {
-            steps {
+   stage('build') {
+        steps {
                 sh 'docker build -t test_node .'
             }
-        }
-    }
+    } 
     stages {
         stage('run') {
             steps {
