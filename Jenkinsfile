@@ -1,12 +1,15 @@
 pipeline {
-    agent { docker {
-             image 'node:16.17.1-alpine' 
-            } 
-        }
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
+                sh 'docker build -t test_node .'
+            }
+        }
+    }
+    stages {
+        stage('run') {
+            steps {
+                sh 'docker run --dit node_container test_node'
             }
         }
     }
