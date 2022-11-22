@@ -8,7 +8,7 @@ pipeline {
         } 
         stage('run') {
             steps {
-                sh 'docker run --dit --name node_container test_node'
+                sh 'docker run -dit --name node_container test_node'
             }
         }
     }
